@@ -1,0 +1,20 @@
+{
+  "name": "deep-fashion-backend",
+  "version": "1.0.0",
+  "description": "Esto es un Rest Api para la web de Deep Fashion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "mongoose",
+    "bcrypt",
+    "nodejs",
+    "vanilla",
+    "javascript",
+    "ecommerce"
+  ],
+  "author": "Mateo Nicolas Wilches Espinosa <mateo.wilches20@gmail.com>",
+  "license": "ISC"
+}

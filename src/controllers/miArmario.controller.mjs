@@ -3,10 +3,10 @@
 
 
 const crearMiArmario = ( req, res ) => {
-    const datosEntrantes = req.body;
+    const inputData = req.body;
 
-    console.log(datosEntrantes);
-    res.send( datosEntrantes);
+    console.log(inputData);
+    res.send( inputData);
 }
 
 const eliminarMiArmario = ( req, res ) => {

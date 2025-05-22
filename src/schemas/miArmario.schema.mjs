@@ -5,38 +5,20 @@ import mongoose from 'mongoose';
 const miArmarioSchema = new mongoose.Schema(
     // Define la estructura de datos del documento
     {
-        name: {
-            type: String,
-            required: true
+        parteSuperior: {
+            type:mongoose.Schema.Types.ObjectId, 
+            ref:'parteSuperior'
         },
-        description: {
-            type: String
+
+        parteInferior: {
+            type:mongoose.Schema.Types.ObjectId, 
+            ref:'parteSuperior'
         },
-        price: {
-            type: Number,
-            min: 0,
-            default: 0
-        },
-        stock: {
-            type: Number,
-            min: 1,
-            default: 1
-        },
-        category: {
-            // TODO: Vincular con un Id al CategorySchema
-            type: String,
-            default: 'non-category'
-        },
-        urlImage: {
-            type: String
-        },
-        state: {
-            type: Boolean,
-            default: true
-        },
+        
+        
         // owner: {
-            // TODO: Vincular con un Id al UserSchema
-        // }
+        //      TODO: Vincular con un Id al UserSchema
+        //  }
     },
     // Configuracion de la estructura de datos
     {

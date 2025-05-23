@@ -1,21 +1,19 @@
-
-
 import mongoose from 'mongoose';
 
 // Define el Schema (Estructura de archivos)
-const parteSuperiorSchema = new mongoose.Schema(
+const parteInferiorSchema = new mongoose.Schema(
     // Define la estructura de datos del documento
     {
       "name": {
         type: String,
         trim: true,
-        required : true
+        required : [true , 'el nombre de la prenda es requerida']
       },
 
       "size":{
         type: String,
         trim: true,
-        required: true,
+        required: [true, 'La talla de la prenda es requerida' ]
       },
 
       "description":{
@@ -25,7 +23,8 @@ const parteSuperiorSchema = new mongoose.Schema(
 
       "color":{
         type: String,
-        trim: true
+        trim: true,
+        required: [ true, 'El color de la prenda es requerida']
       },
     },
     // Configuracion de la estructura de datos
@@ -35,11 +34,11 @@ const parteSuperiorSchema = new mongoose.Schema(
     });
 
 // Define el Modelo: Vincular el Schema a una collection especifica
-const parteSuperiorModel = mongoose.model( 
-    'parteSuperior',                 // Nombre de la collection a la que lo voy a asociar
-    parteSuperiorSchema          // La estructura de datos a la que lo vamos a vincular
+const parteInferiorModel = mongoose.model( 
+    'parteInferior',                 // Nombre de la collection a la que lo voy a asociar
+    parteInferiorSchema          // La estructura de datos a la que lo vamos a vincular
 );
 
 
 // Exponemos el Modelo para ser usado por cualquier otro archivo en mi aplicacion
-export default parteSuperiorModel;
+export default parteInferiorModel;

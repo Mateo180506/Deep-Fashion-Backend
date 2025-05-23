@@ -27,7 +27,7 @@ const miArmarioSchema = new mongoose.Schema(
     });
 
 // Define el Modelo: Vincular el Schema a una collection especifica
-const productModel = mongoose.model( 
+const miArmarioModel = mongoose.model( 
     'miArmario',                 // Nombre de la collection a la que lo voy a asociar
     miArmarioSchema               // La estructura de datos a la que lo vamos a vincular
 );

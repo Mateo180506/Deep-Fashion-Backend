@@ -1,8 +1,8 @@
 //paso 1: Importacion de la dependencia express
 // const express = require(`express`);//comandjs
 import express from "express"; //Es moderna
-
 import miArmario from "./routes/miArmario.route.mjs"
+
 import dbConnect from "./config/mongo.config.mjs";//importamos la conexion a la base de datos
 //paso 2: Invoca la ejecucion de expres
 const app = express();
@@ -13,13 +13,14 @@ dbConnect();
 
 //hacerle entender el express lenguaje json
 app.use ( express.json());
+
 //paso 3: Crear los EndPoins(puntos de entrada)
-
-
-app.use(miArmario);
+app.use (miArmario);
 
 //paso 4: Lanza el servidor web usando express en el puerto 3000
-//                       http://localhost:<port>
+//                       http://localhost:3000
 app.listen( 3000,() => {
     console.log("Servidor  Lanzado Correctamente ")
 } );
+
+

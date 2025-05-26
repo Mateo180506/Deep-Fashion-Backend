@@ -18,6 +18,22 @@ const createEstilos =async ( req, res ) => {
     
 }
 
+const getAllEstilos = async ( req, res ) => {
+
+    try{
+        const data = await estiloModel.find({});
+    res.json( data );
+    }
+    catch ( error ){
+        console.error( error );
+        res.json({msg: "Error: No se pudo obtener el listado de estilos" });
+    }
+
+    
+}
+
+// Exponer las funcionalidades para ser usadas por otros archivos
 export {
-    createEstilos
+    createEstilos,
+    getAllEstilos
 }

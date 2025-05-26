@@ -15,6 +15,19 @@ const createuser = async (req,res)=>{
 
 }
 
+const getallusers= async(req,res)=>{
+
+    try{
+    const data= await userModel.find({});
+    res.json(data)
+    }
+    catch(error){
+    console.error(error);
+    res.json({msg:'Error: No se puedo Obtener la lista de  Usuarios'});
+    }
+    
+}
 export {
-    createuser
+    createuser,
+    getallusers
 }

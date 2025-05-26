@@ -22,7 +22,23 @@ const crearParteInferior = async (req, res) => {
     }
 }
 
+
+const getAllParteInferior = async (req, res) => {
+    
+    try{
+
+    
+    const data = await parteInferiorModel.find({});
+    res.json( data );
+    }
+    catch(error){
+        console.error(error);
+        res.json({msg: 'Error: No se pudo obtener el listado de producto'})
+    }
+}
+
 export {
     crearParteInferior,
+    getAllParteInferior
 }
 

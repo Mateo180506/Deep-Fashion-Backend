@@ -1,4 +1,4 @@
-import miArmarioModel from "../schemas/miArmario.schema.mjs";
+
 import parteSuperiorModel from "../schemas/parteSuperior.schema.mjs";
 
 const crearParteSuperior = async (req, res) => {

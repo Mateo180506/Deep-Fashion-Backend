@@ -16,7 +16,6 @@ app.use ( express.json());
 
 //paso 3: Crear los EndPoins(puntos de entrada)
 app.use (miArmario);
-
 //paso 4: Lanza el servidor web usando express en el puerto 3000
 //                       http://localhost:3000
 app.listen( 3000,() => {

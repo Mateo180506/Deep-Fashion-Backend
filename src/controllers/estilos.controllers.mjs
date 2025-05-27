@@ -69,11 +69,29 @@ const removeEstilosById = async ( req, res ) => {
         res.json({msg: "Error: Este estilo no se pudo encontrar"});
     }
 }
+
+const updateEstilosById = async ( req, res ) => {
+    const estiloId = req.params.id; //Obtenemos el ID de la parametrizacion de la ruta
+    const inputData = req.body; //Obtenemos el body de la peticion
+
+    try{
+    const data = await estiloModel.findByIdAndUpdate( estiloId, inputData, {new:
+        true
+    } );
+
+    res.json ( data );
+    }
+    catch ( error ){
+        console.error( error );
+        res.json({msg: "Error: No se pudo actualizar el producto"});
+    }
+}
 // Exponer las funcionalidades para ser usadas por otros archivos
 export {
     createEstilos,
     getAllEstilos,
     getEstilosById,
-    removeEstilosById
+    removeEstilosById,
+    updateEstilosById
 
 }

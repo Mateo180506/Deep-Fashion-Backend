@@ -43,8 +43,25 @@ const getuserbyId= async(req,res)=>{
     }
     
 }
+
+const deleteuserById= async(req,res)=>{
+    const UserId=req.params.id;
+    try{
+    const data= await userModel.findByIdAndDelete(UserId);
+    if(!data){
+        return res.json({msg:'Este usuario no existe '})
+    }
+    res.json(data); 
+    }
+    catch(error){
+    console.error(error);
+    res.json({msg:'Error: Este usuario no se pudo encontrar '});
+    }
+    
+}
 export {
     createuser,
     getallusers,
-    getuserbyId
+    getuserbyId,
+    deleteuserById
 }

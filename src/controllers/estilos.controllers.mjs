@@ -46,15 +46,34 @@ const getEstilosById = async ( req, res ) => {
     }
     catch( error ){
         console.error( error );
-        res.json({msg: "Error: Este estilo no se pudo encontrar"});
+        res.json({msg: "Error: No se pudo eliminar el producto"});
     }
     
 }
 
+const removeEstilosById = async ( req, res ) => {
+    const estiloId = req.params.id;
+
+    try { 
+    const data = await estiloModel.findByIdAndDelete ( estiloId );
+    // const data = await estiloModel.findOneAndDelete ({ _id: estiloId} );
+
+    if( ! data ){
+            return res.json({msg: "El estilo no existe"});
+        }
+
+    res.json( data );
+    }
+    catch ( error ) {
+        console.error( error );
+        res.json({msg: "Error: Este estilo no se pudo encontrar"});
+    }
+}
 // Exponer las funcionalidades para ser usadas por otros archivos
 export {
     createEstilos,
     getAllEstilos,
-    getEstilosById
+    getEstilosById,
+    removeEstilosById
 
 }

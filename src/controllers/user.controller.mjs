@@ -27,7 +27,24 @@ const getallusers= async(req,res)=>{
     }
     
 }
+
+const getuserbyId= async(req,res)=>{
+    const UserId=req.params.id;
+    try{
+    const data= await userModel.findById(UserId);
+    if(!data){
+        return res.json({msg:'Este usuario no se encuentra registrado  '})
+    }
+    res.json(data); 
+    }
+    catch(error){
+    console.error(error);
+    res.json({msg:'Error: Este usuario no se pudo encontrar '});
+    }
+    
+}
 export {
     createuser,
-    getallusers
+    getallusers,
+    getuserbyId
 }

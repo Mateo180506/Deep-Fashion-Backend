@@ -57,12 +57,52 @@ const getParteInferiorById = async (req, res) => {
     }
 }
 
+const removeParteInferiorById = async (req, res) => {
+
+    const parteInferiorId = req.params.id;
+
+    try{ 
+
+    const data = await parteInferiorModel.findByIdAndDelete (parteInferiorId);
+
+    if(data == null){
+
+            return res.json({msg: 'Error: El producto no existe'});
+        }
+
+    res.json(data);
+
+    }
+
+    catch (error){
+        console.error( error);
+        res.json({msg: 'Error: No se pudo encontrar el producto'});
+    }
+}
+
+const updateParteInferiorById = async (req, res) => {
+    const parteInferiorId = req.params.id;  //Obteniendo el ID de la parametrizacion de la ruta
+    const inputData = req.body; //Obtenemos el body de la peticion 
+    try {
+    const data = await parteInferiorModel.findByIdAndUpdate(parteInferiorId, inputData, { new:true} );
+
+    res.json(data);
+    }
+    catch (error){
+        console.error( error);
+        res.json({msg: 'Error: No se pudo actualizar el producto'});
+    }
+
+}
+
 
 
 
 export {
     crearParteInferior,
     getAllParteInferior,
-    getParteInferiorById
+    getParteInferiorById, 
+    removeParteInferiorById, 
+    updateParteInferiorById
 }
 

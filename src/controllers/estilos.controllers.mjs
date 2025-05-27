@@ -32,8 +32,29 @@ const getAllEstilos = async ( req, res ) => {
     
 }
 
+const getEstilosById = async ( req, res ) => {
+    const estiloId = req.params.id;   //El nombre final dependera del nombre del parametro de la ruta
+    try{
+        const data = await estiloModel.findById( estiloId );
+        //Verifica si el producto No existe
+
+        if( ! data ){
+            return res.json({msg: "El estilo no se encuentra registrado"});
+        }
+        res.json( data );
+    
+    }
+    catch( error ){
+        console.error( error );
+        res.json({msg: "Error: Este estilo no se pudo encontrar"});
+    }
+    
+}
+
 // Exponer las funcionalidades para ser usadas por otros archivos
 export {
     createEstilos,
-    getAllEstilos
+    getAllEstilos,
+    getEstilosById
+
 }

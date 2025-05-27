@@ -59,9 +59,28 @@ const deleteuserById= async(req,res)=>{
     }
     
 }
+
+const updateuserById= async(req,res)=>{
+    const UserId=req.params.id;
+    const inputData =req.body;
+
+    try{
+    const data= await userModel.findByIdAndUpdate(UserId,inputData,{new:true});
+    res.json(data); 
+    }
+
+    catch(error){
+    console.error(error);
+    res.json({msg:'Error: Este usuario no se pudo encontrar '});
+    }
+
+    
+    
+}
 export {
     createuser,
     getallusers,
     getuserbyId,
-    deleteuserById
+    deleteuserById,
+    updateuserById
 }

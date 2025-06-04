@@ -9,6 +9,7 @@ const app = express();
     dbConnect();
 app.use( express.json());
 app.use(users);
+app.use(estilos);
 app.listen( 3000,() => {
     console.log("Servidor  Lanzado Correctamente ")
 } );
